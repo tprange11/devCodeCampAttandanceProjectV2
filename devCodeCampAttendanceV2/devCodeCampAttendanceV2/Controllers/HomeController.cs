@@ -15,14 +15,14 @@ namespace devCodeCampAttendanceV2.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This application is a single stop where students can check into class, and instructors can view student attendance and run reports.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Find Contact details for devCodeCamp below.";
 
             return View();
         }

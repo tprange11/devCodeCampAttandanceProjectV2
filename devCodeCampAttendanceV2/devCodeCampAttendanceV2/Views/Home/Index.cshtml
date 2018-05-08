@@ -3,29 +3,53 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Welcome to devCodeCamp Attendance</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Instructor"))
+        {
+            <p class="lead">Use this platform to check students attendance</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Daily Attendance</h2>
+                    <p>
+                       View students that have signed in today.
+                    </p>
+                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Go to Attendance &raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Weekly Attendance</h2>
+                    <p>Generate a report of which students signed in for the week.</p>
+                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Go to Reporting&raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Classes</h2>
+                    <p>View Classes.</p>
+                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Go to Classes &raquo;</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h2>Students</h2>
+                    <p>View and Change Student's Sign-Ins</p>
+                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Go to Students &raquo;</a></p>
+                </div>
+            </div>
+        }
+    }
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Student"))
+        {
+            <p class="lead">Your sign-in status for the day is:</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Sign-In</h2>
+                    <p>
+                        Check in for the day below.
+                    </p>
+                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Sign In &raquo;</a></p>
+                </div>
+            </div>
+        }
+    }
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
