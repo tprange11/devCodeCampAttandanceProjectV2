@@ -1,0 +1,49 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("devCodeCamp Attendence", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Instructor"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Attendence<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>Today</li>
+                                    <li><a href="#">This Week</a></li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Classes", "Index", "Classes")</li> @*View classes/ button to create*@
+                            <li>@Html.ActionLink("Students", "Index", "Students")</li> @*View Students/ button to edit signins*@
+                        }
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Student"))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Addresses", "MyAddresses", "Addresses")</li>
+                            <li>@Html.ActionLink("Pickups", "MyPickups", "Pickups")</li>
+                            <li>@Html.ActionLink("Charges", "MyCharges", "Charges")</li>
+                        }
+                    }
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</nav>
