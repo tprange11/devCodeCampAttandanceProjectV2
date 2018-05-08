@@ -29,5 +29,12 @@ namespace devCodeCampAttendanceV2.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+        public DbSet<ClassStudent> ClassStudents { get; set; }
+        public DbSet<SignIn> SignIns { get; set; }
+        public DbSet<AccessPointAddress> AccessPointAddresses { get; set; }
+
     }
 }
