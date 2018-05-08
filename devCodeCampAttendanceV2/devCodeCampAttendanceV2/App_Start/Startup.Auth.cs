@@ -63,6 +63,15 @@ namespace devCodeCampAttendanceV2
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            app.UseFacebookAuthentication(
+              appId: "aa53c7e2d53bb5d37e5967084b56fae2",
+              appSecret: "1731635763586150");
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "240794020868-8k2heuhhetmo5ak8hgb2vo7eghsfpphp.apps.googleusercontent.com",
+                ClientSecret = "ocK3daBeQEBgLYwNraThyxY3"
+            });
         }
     }
 }
