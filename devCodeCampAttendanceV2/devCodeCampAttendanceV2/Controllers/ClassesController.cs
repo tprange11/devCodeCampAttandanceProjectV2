@@ -53,16 +53,16 @@ namespace devCodeCampAttendanceV2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,StartDate,EndDate")] Class @class)
+        public ActionResult Create([Bind(Include = "ID,Name,StartDate,EndDate")] Class newclass)
         {
             if (ModelState.IsValid)
             {
-                db.Classes.Add(@class);
+                db.Classes.Add(newclass);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Current");
             }
 
-            return View(@class);
+            return View(newclass);
         }
 
         // GET: Classes/Edit/5

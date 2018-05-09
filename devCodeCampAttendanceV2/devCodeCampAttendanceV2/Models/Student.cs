@@ -11,8 +11,10 @@ namespace devCodeCampAttendanceV2.Models
         [Key]
         public int ID { get; set; }
         [StringLength(50)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
         [StringLength(50)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [StringLength(50)]
         public string SlackID { get; set; }
