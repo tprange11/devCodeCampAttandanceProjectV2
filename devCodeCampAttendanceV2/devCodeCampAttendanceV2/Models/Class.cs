@@ -13,7 +13,9 @@ namespace devCodeCampAttendanceV2.Models
         public int ID { get; set; }
         [StringLength(50)]
         public string Name { get; set; }
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
 

@@ -18,13 +18,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44383</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressSSLPort>20533</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -221,6 +218,10 @@
     <Compile Include="Migrations\201805081932008_Initial.Designer.cs">
       <DependentUpon>201805081932008_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs" />
+    <Compile Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.Designer.cs">
+      <DependentUpon>201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -344,6 +345,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805081932008_Initial.resx">
       <DependentUpon>201805081932008_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.resx">
+      <DependentUpon>201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
