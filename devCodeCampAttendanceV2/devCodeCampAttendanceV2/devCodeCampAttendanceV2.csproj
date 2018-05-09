@@ -232,7 +232,7 @@
     <Compile Include="Models\SignIn.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlackCLient.cs" />
+    <Compile Include="SlackClient.cs" />
     <Compile Include="SlackClientTest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
