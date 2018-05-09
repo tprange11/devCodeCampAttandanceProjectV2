@@ -12,14 +12,12 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <ul class="nav navbar-nav">                    
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("Instructor"))
                         {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Attendence<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
