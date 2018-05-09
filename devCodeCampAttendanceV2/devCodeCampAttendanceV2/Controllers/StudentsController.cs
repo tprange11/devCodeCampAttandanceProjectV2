@@ -14,10 +14,13 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Students
-        public ActionResult Index()
+        
+        
+        // GET: Students & Classes
+        public ActionResult Current()
         {
-            return View(db.Students.ToList());
+            var classStudents = db.ClassStudents.Where(c => c.Class.EndDate > DateTime.Now);
+            return View(classStudents);
         }
 
         // GET: Students/Details/5

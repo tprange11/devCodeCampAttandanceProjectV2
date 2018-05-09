@@ -18,8 +18,8 @@
                         if (User.IsInRole("Instructor"))
                         {
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>                            
-                            <li>@Html.ActionLink("Classes", "Index", "Classes")</li> @*View classes/ button to create*@
-                            <li>@Html.ActionLink("Students", "Index", "Students")</li> @*View Students/ button to edit signins*@
+                            <li>@Html.ActionLink("Classes", "Current", "Classes")</li> @*View classes/ button to create*@
+                            <li>@Html.ActionLink("Students", "Current", "Students")</li> @*View Students/ button to edit signins*@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Attendence<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -35,9 +35,7 @@
                         if (User.IsInRole("Student"))
                         {
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Addresses", "MyAddresses", "Addresses")</li>
-                            <li>@Html.ActionLink("Pickups", "MyPickups", "Pickups")</li>
-                            <li>@Html.ActionLink("Charges", "MyCharges", "Charges")</li>
+                            <li>@Html.ActionLink("Sign In", "Create", "SignIns")</li>
                         }
                     }
             </ul>

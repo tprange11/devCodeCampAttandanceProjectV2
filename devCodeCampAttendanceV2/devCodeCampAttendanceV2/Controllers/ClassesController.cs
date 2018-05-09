@@ -14,6 +14,13 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //GET: Current Classes
+        public ActionResult Current()
+        {
+            var currentClasses = db.Classes.Where(c => c.EndDate > DateTime.Now);
+            return View(currentClasses);
+        }
+        
         // GET: Classes
         public ActionResult Index()
         {
@@ -46,16 +53,16 @@ namespace devCodeCampAttendanceV2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,StartDate,EndDate")] Class @class)
+        public ActionResult Create([Bind(Include = "ID,Name,StartDate,EndDate")] Class newclass)
         {
             if (ModelState.IsValid)
             {
-                db.Classes.Add(@class);
+                db.Classes.Add(newclass);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Current");
             }
 
-            return View(@class);
+            return View(newclass);
         }
 
         // GET: Classes/Edit/5

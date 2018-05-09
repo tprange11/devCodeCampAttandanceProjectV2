@@ -19,12 +19,9 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44383</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -208,7 +205,6 @@
     <Compile Include="Controllers\AccessPointAddressesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
-    <Compile Include="Controllers\ClassStudentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -220,6 +216,14 @@
     <Compile Include="Migrations\201805081932008_Initial.cs" />
     <Compile Include="Migrations\201805081932008_Initial.Designer.cs">
       <DependentUpon>201805081932008_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs" />
+    <Compile Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.Designer.cs">
+      <DependentUpon>201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091544492_AddedDisplayTagsToStudentAndClass.cs" />
+    <Compile Include="Migrations\201805091544492_AddedDisplayTagsToStudentAndClass.Designer.cs">
+      <DependentUpon>201805091544492_AddedDisplayTagsToStudentAndClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
@@ -266,6 +270,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Classes\Current.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,6 +336,7 @@
     <Content Include="Views\ClassStudents\Details.cshtml" />
     <Content Include="Views\ClassStudents\Edit.cshtml" />
     <Content Include="Views\ClassStudents\Index.cshtml" />
+    <Content Include="Views\Students\Current.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,6 +352,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805081932008_Initial.resx">
       <DependentUpon>201805081932008_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.resx">
+      <DependentUpon>201805091354565_AddedDataTypeTagToClassesForCalendarDropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091544492_AddedDisplayTagsToStudentAndClass.resx">
+      <DependentUpon>201805091544492_AddedDisplayTagsToStudentAndClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
