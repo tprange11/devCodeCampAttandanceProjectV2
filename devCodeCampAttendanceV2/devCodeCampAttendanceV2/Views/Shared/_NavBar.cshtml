@@ -1,8 +1,5 @@
 ﻿<nav class="navbar navbar-inverse">
-    <div class="container-fluid ">
-        <a class="navbar-header" height="40" width="256" href="http://devcodecamp.com">
-            <img src="~/images/devLogo-black-long.png" style="background-color: transparent" height="40" width="256" />
-        </a>
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                 <span class="sr-only">Toggle navigation</span>
@@ -10,36 +7,37 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            @Html.ActionLink(" Attendence", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
+            @Html.ActionLink("devCodeCamp Attendence", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            
         </div>
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Instructor"))
+            <ul class="nav navbar-nav">                    
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Classes", "Current", "Classes")</li> @*View classes/ button to create*@
-                        <li>@Html.ActionLink("Students", "Current", "Students")</li> @*View Students/ button to edit signins*@
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Attendence<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("Today", "Today", "SignIns")</li>
-                                <li>@Html.ActionLink("This Week", "ThisWeek", "SignIns")</li>
-                            </ul>
-                        </li>
+                        if (User.IsInRole("Instructor"))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>                            
+                            <li>@Html.ActionLink("Classes", "Current", "Classes")</li> @*View classes/ button to create*@
+                            <li>@Html.ActionLink("Students", "Current", "Students")</li> @*View Students/ button to edit signins*@
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Attendence<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Today", "Today", "SignIns")</li>
+                                    <li>@Html.ActionLink("This Week", "ThisWeek", "SignIns")</li>
+                                </ul>
+                            </li>
+                        }
                     }
-                }
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Student"))
+
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Sign In", "Create", "SignIns")</li>
+                        if (User.IsInRole("Student"))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Sign In", "Create", "SignIns")</li>
+                        }
                     }
-                }
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
