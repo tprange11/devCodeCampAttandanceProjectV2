@@ -14,6 +14,13 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //GET: Current Classes
+        public ActionResult Current()
+        {
+            var currentClasses = db.Classes.Where(c => c.EndDate > DateTime.Now);
+            return View(currentClasses);
+        }
+        
         // GET: Classes
         public ActionResult Index()
         {
