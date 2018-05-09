@@ -4,7 +4,7 @@
 }
 
 <p>
-    @Html.ActionLink("Add a Class", "Create")
+    @Html.ActionLink("Add a Class", "Create", new { @class="btn btn-default"})
 </p>
 
 @if (Model == null || Model.Count() == 0)
