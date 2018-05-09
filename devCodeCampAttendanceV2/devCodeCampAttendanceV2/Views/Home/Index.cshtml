@@ -3,34 +3,30 @@
 }
 
 <div class="jumbotron">
-    <h1>Welcome to devCodeCamp Attendance</h1></br>
+    <h1>Welcome to devCodeCamp Attendance</h1><br />
     @if (User.Identity.IsAuthenticated)
     {
         if (User.IsInRole("Instructor"))
         {
-            <p class="lead">Use this platform to check students attendance</p>
+            <p class="lead">Use this platform to check students' attendance.</p>
             <div class="row">
-                <div class="col-md-3">
-                    <h2>Daily Attendance</h2>
+                <div class="col-md-4">
+                    <h2>Attendance</h2>
                     <p>
                        View students that have signed in today.
                     </p>
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Go to Attendance &raquo;</a></p>
+                    <p><a class="btn btn-default" href="/SignIns/Today">Go to Attendance &raquo;</a></p>
                 </div>
-                <div class="col-md-3">
-                    <h2>Weekly Attendance</h2>
-                    <p>Generate a report of which students signed in for the week.</p>
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Go to Reporting&raquo;</a></p>
-                </div>
-                <div class="col-md-3">
+                
+                <div class="col-md-4">
                     <h2>Classes</h2>
-                    <p>View Classes.</p>
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Go to Classes &raquo;</a></p>
+                    <p>View Classes currently in session.</p>
+                    <p><a class="btn btn-default" href="/Classes/Current">Go to Classes &raquo;</a></p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h2>Students</h2>
                     <p>View and Change Student's Sign-Ins</p>
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Go to Students &raquo;</a></p>
+                    <p><a class="btn btn-default" href="/Students/Current">Go to Students &raquo;</a></p>
                 </div>
             </div>
         }
@@ -39,13 +35,10 @@
     {
         if (User.IsInRole("Student"))
         {
-            <p class="lead">Your sign-in status for the day is:</p>
-            <div class="row">
-                    <p>
-                        Check in for the day below.
-                    </p>
-                    <p><a class="btn btn-default" href="/SignIns/Create">Sign In &raquo;</a></p>
-            </div>
+            <p>Your sign-in status for the day is:</p>
+            <p>Check in for the day below.</p>
+            <p><a class="btn btn-default" href="/SignIns/Create">Sign In &raquo;</a></p>
+
         }
     }
 </div>
