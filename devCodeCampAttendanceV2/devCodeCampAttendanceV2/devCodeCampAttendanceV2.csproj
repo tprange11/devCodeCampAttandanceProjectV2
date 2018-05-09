@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201805091544492_AddedDisplayTagsToStudentAndClass.Designer.cs">
       <DependentUpon>201805091544492_AddedDisplayTagsToStudentAndClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805091829052_AddedUserIDToStudentModelForLater.cs" />
+    <Compile Include="Migrations\201805091829052_AddedUserIDToStudentModelForLater.Designer.cs">
+      <DependentUpon>201805091829052_AddedUserIDToStudentModelForLater.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -335,6 +339,7 @@
     <Content Include="Views\ClassStudents\Edit.cshtml" />
     <Content Include="Views\ClassStudents\Index.cshtml" />
     <Content Include="Views\Students\Current.cshtml" />
+    <Content Include="Views\Students\StudentHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -356,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805091544492_AddedDisplayTagsToStudentAndClass.resx">
       <DependentUpon>201805091544492_AddedDisplayTagsToStudentAndClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091829052_AddedUserIDToStudentModelForLater.resx">
+      <DependentUpon>201805091829052_AddedUserIDToStudentModelForLater.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

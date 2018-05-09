@@ -10,7 +10,19 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if(User.IsInRole("Instructor"))
+            {
+                return View();
+            }
+            else if (User.IsInRole("Student"))
+            {
+                return RedirectToAction("StudentHome", "Students");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         public ActionResult About()
@@ -26,5 +38,6 @@ namespace devCodeCampAttendanceV2.Controllers
 
             return View();
         }
+
     }
 }

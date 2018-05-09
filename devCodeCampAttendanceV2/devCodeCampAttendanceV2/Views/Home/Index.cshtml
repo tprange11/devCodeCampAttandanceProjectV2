@@ -31,15 +31,5 @@
             </div>
         }
     }
-    @if (User.Identity.IsAuthenticated)
-    {
-        if (User.IsInRole("Student"))
-        {
-            <p>Your sign-in status for the day is:</p>
-            <p>Check in for the day below.</p>
-            <p><a class="btn btn-default" href="/SignIns/Create">Sign In &raquo;</a></p>
-
-        }
-    }
 </div>
 

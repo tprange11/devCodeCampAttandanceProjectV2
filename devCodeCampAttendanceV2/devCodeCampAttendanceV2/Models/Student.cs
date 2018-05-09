@@ -19,8 +19,7 @@ namespace devCodeCampAttendanceV2.Models
         [StringLength(50)]
         public string SlackID { get; set; }
 
-
-
+        public string UserID { get; set; }
 
     }
 }

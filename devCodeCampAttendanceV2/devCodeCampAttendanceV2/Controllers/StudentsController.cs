@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using devCodeCampAttendanceV2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace devCodeCampAttendanceV2.Controllers
 {
@@ -21,6 +22,28 @@ namespace devCodeCampAttendanceV2.Controllers
         {
             var classStudents = db.ClassStudents.Where(c => c.Class.EndDate > DateTime.Now);
             return View(classStudents);
+        }
+        public ActionResult StudentHome()
+        {
+            string userID = User.Identity.GetUserId();  //get current userID
+            var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
+            var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
+            DateTime today = DateTime.Now.Date;
+            var signedIn = db.SignIns.Where(s => s.Date > today && s.StudentID ==student.ID); //pull signin entries where the student matches and the date is today
+            if(student == null)
+            {
+                return View("Index", "Home");
+            }
+            else if (signedIn.Count() == 0) //if there are none
+            {
+                ViewBag.Message = "NOT Signed In.";
+            }
+            else //if there is one
+            {
+                ViewBag.Message = "Signed In!";
+            }
+
+            return View();
         }
 
         // GET: Students/Details/5
@@ -53,9 +76,10 @@ namespace devCodeCampAttendanceV2.Controllers
         {
             if (ModelState.IsValid)
             {
+                student.UserID = User.Identity.GetUserId();
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(student);

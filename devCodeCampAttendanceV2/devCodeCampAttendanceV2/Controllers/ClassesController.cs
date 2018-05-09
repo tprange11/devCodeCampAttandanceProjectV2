@@ -91,7 +91,7 @@ namespace devCodeCampAttendanceV2.Controllers
             {
                 db.Entry(@class).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Current");
             }
             return View(@class);
         }

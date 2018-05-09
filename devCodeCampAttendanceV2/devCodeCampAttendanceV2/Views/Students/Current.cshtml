@@ -6,57 +6,60 @@
 
 <h2>Current Students</h2>
 <p>
-    @Html.ActionLink("Create a Student", "Create", "Students")
+    <a href="/Students/Create" class="btn btn-default">Add a Student</a>
 </p>
 
 @if (Model == null || Model.Count() == 0)
 {
-    <div class="row">
-        <div class="jumbotron2">
-            <h2>There are no students to show!</h2>
-            <p class="lead">Click "Add a Student" to create a new one.</p>
-        </div>
+    <div class="jumbotron">
+        <h2>There are no students to show!</h2>
+        <p class="lead">Click "Add a Student" to create a new one.</p>
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Class.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.SlackID)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+else
+{
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Class.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.SlackID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", "Student") |
-                @Html.ActionLink("Details", "Details", "Student") |
-                @Html.ActionLink("Delete", "Delete", "Student")
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Class.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.SlackID)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Class.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.SlackID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Student") |
+                    @Html.ActionLink("Details", "Details", "Student") |
+                    @Html.ActionLink("Delete", "Delete", "Student")
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+
+    
 
