@@ -205,6 +205,7 @@
     <Compile Include="Controllers\AccessPointAddressesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\ClassStudentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -213,9 +214,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805101613539_Initial.cs" />
-    <Compile Include="Migrations\201805101613539_Initial.Designer.cs">
-      <DependentUpon>201805101613539_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201805101858435_MadeClassStudentsClassIDNullable.cs" />
+    <Compile Include="Migrations\201805101858435_MadeClassStudentsClassIDNullable.Designer.cs">
+      <DependentUpon>201805101858435_MadeClassStudentsClassIDNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805101902465_ReversedLastMigration.cs" />
+    <Compile Include="Migrations\201805101902465_ReversedLastMigration.Designer.cs">
+      <DependentUpon>201805101902465_ReversedLastMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201805102034246_added Classes.cs" />
     <Compile Include="Migrations\201805102034246_added Classes.Designer.cs">
@@ -340,6 +345,7 @@
     <Content Include="Views\Students\Current.cshtml" />
     <Content Include="Views\Students\StudentHome.cshtml" />
     <Content Include="Views\Instructors\InstructorHome.cshtml" />
+    <Content Include="Views\Classes\Past.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,8 +359,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805101613539_Initial.resx">
-      <DependentUpon>201805101613539_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805101858435_MadeClassStudentsClassIDNullable.resx">
+      <DependentUpon>201805101858435_MadeClassStudentsClassIDNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805101902465_ReversedLastMigration.resx">
+      <DependentUpon>201805101902465_ReversedLastMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805102034246_added Classes.resx">
       <DependentUpon>201805102034246_added Classes.cs</DependentUpon>

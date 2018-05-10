@@ -14,6 +14,11 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult InstructorHome()
+        {
+            return View();
+        }
+
         // GET: Instructors
         public ActionResult Index()
         {
