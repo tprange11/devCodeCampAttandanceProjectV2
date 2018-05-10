@@ -217,6 +217,14 @@
     <Compile Include="Migrations\201805101613539_Initial.Designer.cs">
       <DependentUpon>201805101613539_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805102034246_added Classes.cs" />
+    <Compile Include="Migrations\201805102034246_added Classes.Designer.cs">
+      <DependentUpon>201805102034246_added Classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805102104143_added Instructors.cs" />
+    <Compile Include="Migrations\201805102104143_added Instructors.Designer.cs">
+      <DependentUpon>201805102104143_added Instructors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -347,6 +355,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805101613539_Initial.resx">
       <DependentUpon>201805101613539_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805102034246_added Classes.resx">
+      <DependentUpon>201805102034246_added Classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805102104143_added Instructors.resx">
+      <DependentUpon>201805102104143_added Instructors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
