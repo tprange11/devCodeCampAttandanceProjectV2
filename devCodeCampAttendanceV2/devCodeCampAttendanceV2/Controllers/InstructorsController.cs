@@ -52,7 +52,7 @@ namespace devCodeCampAttendanceV2.Controllers
             {
                 db.Instructors.Add(instructor);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(instructor);

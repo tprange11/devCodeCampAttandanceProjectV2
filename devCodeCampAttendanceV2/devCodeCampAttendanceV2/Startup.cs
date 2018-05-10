@@ -18,8 +18,8 @@ namespace devCodeCampAttendanceV2
                 .UseSqlServerStorage("DefaultConnection");
             app.UseHangfireServer();
             app.UseHangfireDashboard();
-            //SlackClientTest slackClient = new SlackClientTest();
-            //slackClient.TestPostMessage();
+            SlackClientTest slackClient = new SlackClientTest();
+            slackClient.TestPostMessage();
         }
 
         private void CreateRolesandUsers()
