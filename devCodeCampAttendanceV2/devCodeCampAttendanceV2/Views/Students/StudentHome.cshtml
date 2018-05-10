@@ -6,9 +6,17 @@
 
 
 
-<div class="jumbotron">
+<div class="jumbotron" onload="isInRange();">
     <h1>Welcome to devCodeCamp Attendance</h1><br />
     <p>Your sign-in status for the day is: <strong style="color: #f39c12;">@ViewBag.Message</strong></p>
-        <p>Check in for the day below.</p>
-        <p><a class="btn btn-default" href="/SignIns/Create">Sign In &raquo;</a></p>
+
+
+    <p>Check in for the day below.</p>
+    <p><a id="myBtn" on onmouseover="isInRange();" class="btn btn-default" href="/SignIns/Create">Sign In &raquo;</a></p>
+        
+    <p id="demo"></p>
+
+
+
+
 </div>
