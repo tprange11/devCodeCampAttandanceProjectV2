@@ -15,13 +15,27 @@ namespace devCodeCampAttendanceV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
-        
+
+
         // GET: Students & Classes
         public ActionResult Current()
         {
-            var classStudents = db.ClassStudents.Where(c => c.Class.EndDate > DateTime.Now);
-            return View(classStudents);
+            var students = db.Students.Select(s => s.ID).ToList();                           //list of students IDs
+            var classStudents = db.ClassStudents.Select(cs => cs.StudentID).ToList();        //list of ClassStudents student IDs
+            List<Student> final = new List<Student>();                              //final list to be passed into view
+            foreach(int ID in students)                                             //for each id in list of student IDs
+            {
+                if(!classStudents.Contains(ID) || classStudents.Count() == 0)                                     //check if there's NO junction with that student
+                {
+                    final.Add(db.Students.Where(s => s.ID == ID).FirstOrDefault()); //if there is no junction, add them to the list of final students
+                }
+            }
+            var studentsWithClasses = db.ClassStudents.Where(c => c.Class.EndDate > DateTime.Now).Select(c => c.Student).ToList();
+            foreach(Student student in studentsWithClasses)
+            {
+                final.Add(student);
+            }
+            return View(final);
         }
         public ActionResult StudentHome()
         {

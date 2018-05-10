@@ -20,7 +20,13 @@ namespace devCodeCampAttendanceV2.Controllers
             var currentClasses = db.Classes.Where(c => c.EndDate > DateTime.Now);
             return View(currentClasses);
         }
-        
+
+        public ActionResult Past()
+        {
+            var pastClasses = db.Classes.Where(c => c.EndDate < DateTime.Now);
+            return View(pastClasses);
+        }
+
         // GET: Classes
         public ActionResult Index()
         {
