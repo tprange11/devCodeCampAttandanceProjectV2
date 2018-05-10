@@ -4,32 +4,4 @@
 
 <div class="jumbotron">
     <h1>Welcome to devCodeCamp Attendance</h1><br />
-    @if (User.Identity.IsAuthenticated)
-    {
-        if (User.IsInRole("Instructor"))
-        {
-            <p class="lead">Use this platform to check students' attendance.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Attendance</h2>
-                    <p>
-                       View students that have signed in today.
-                    </p>
-                    <p><a class="btn btn-default" href="/SignIns/Today">Go to Attendance &raquo;</a></p>
-                </div>
-                
-                <div class="col-md-4">
-                    <h2>Classes</h2>
-                    <p>View Classes currently in session.</p>
-                    <p><a class="btn btn-default" href="/Classes/Current">Go to Classes &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Students</h2>
-                    <p>View and Change Student's Sign-Ins</p>
-                    <p><a class="btn btn-default" href="/Students/Current">Go to Students &raquo;</a></p>
-                </div>
-            </div>
-        }
-    }
-</div>
 

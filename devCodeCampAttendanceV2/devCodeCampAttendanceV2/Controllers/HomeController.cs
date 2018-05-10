@@ -12,7 +12,7 @@ namespace devCodeCampAttendanceV2.Controllers
         {
             if(User.IsInRole("Instructor"))
             {
-                return View();
+                return RedirectToAction("InstructorHome", "Instructors");
             }
             else if (User.IsInRole("Student"))
             {
