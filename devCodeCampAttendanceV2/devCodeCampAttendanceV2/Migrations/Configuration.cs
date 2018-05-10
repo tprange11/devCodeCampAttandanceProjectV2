@@ -26,9 +26,6 @@ namespace devCodeCampAttendanceV2.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Students.AddOrUpdate(
-                s => s.FirstName,
-                new Models.Student { FirstName = "test" });
         }
     }
 }
