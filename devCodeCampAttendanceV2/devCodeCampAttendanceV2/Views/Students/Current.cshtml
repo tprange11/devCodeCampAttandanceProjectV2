@@ -29,6 +29,9 @@ else
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
+            <th>
+                Options
+            </th>
             <th></th>
         </tr>
 
@@ -44,11 +47,11 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
-                <td>
+                <td>                    
+                    @Html.ActionLink("Add to Class", "Create", "ClassStudents", null, new { StudentID = "item.ID"}) |
                     @Html.ActionLink("Edit", "Edit", "Student") |
                     @Html.ActionLink("Details", "Details", "Student") |
-                    @Html.ActionLink("Delete", "Delete", "Student") |
-                    @Html.ActionLink("Add to Class", "Create", "ClassStudents", null, new { StudentID = "item.ID"})
+                    @Html.ActionLink("Delete", "Delete", "Student")
                 </td>
             </tr>
         }

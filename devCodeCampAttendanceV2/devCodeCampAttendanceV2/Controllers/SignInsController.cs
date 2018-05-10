@@ -16,6 +16,12 @@ namespace devCodeCampAttendanceV2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: SignIns
+
+        public ActionResult Today()
+        {
+            var todaysSignIns = db.SignIns.Where(s => s.Date == DateTime.Today).ToList();
+            return View(todaysSignIns);
+        }
         public ActionResult Index()
         {
 
