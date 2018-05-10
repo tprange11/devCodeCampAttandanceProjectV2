@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using devCodeCampAttendanceV2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace devCodeCampAttendanceV2.Controllers
 {
@@ -17,8 +18,21 @@ namespace devCodeCampAttendanceV2.Controllers
         // GET: SignIns
         public ActionResult Index()
         {
-            var signIns = db.SignIns.Include(s => s.Class).Include(s => s.Student);
-            return View(signIns.ToList());
+
+            if (User.IsInRole("Instructor"))
+            {
+                var signIns = db.SignIns.Include(s => s.Class).Include(s => s.Student);
+                return View(signIns.ToList());
+            }
+            else if(User.IsInRole("Student"))
+            {
+                string userID = User.Identity.GetUserId();  //get current userID
+                var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
+                var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
+                var signIns = db.SignIns.Where(s => s.StudentID == student.ID).Include(s => s.Class).Include(s => s.Student);
+                return View(signIns.ToList());
+            }
+            return RedirectToAction("Index", "Home");   
         }
 
         // GET: SignIns/Details/5
@@ -39,9 +53,17 @@ namespace devCodeCampAttendanceV2.Controllers
         // GET: SignIns/Create
         public ActionResult Create()
         {
-            ViewBag.ClassID = new SelectList(db.Classes, "ID", "Name");
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName");
-            return View();
+            string userID = User.Identity.GetUserId();  //get current userID
+            var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
+            var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
+            ViewBag.ClassID = new SelectList(db.ClassStudents.Where(c => c.StudentID == student.ID), "ID", "Name");
+            DateTime date = DateTime.Now;
+            SignIn signIn = new SignIn()
+            {
+                Student = student,
+                Date = date
+            };
+            return View(signIn);
         }
 
         // POST: SignIns/Create
@@ -53,9 +75,26 @@ namespace devCodeCampAttendanceV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SignIns.Add(signIn);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string userID = User.Identity.GetUserId();  //get current userID
+                var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
+                var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
+                DateTime signInTime = Convert.ToDateTime(signIn.Date.TimeOfDay);
+                DateTime lateTime = Convert.ToDateTime("07:15:00");
+                if (signInTime > lateTime)
+                {
+                    signIn.Late = true;
+                    db.SignIns.Add(signIn);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    signIn.Late = false;
+                    db.SignIns.Add(signIn);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
             }
 
             ViewBag.ClassID = new SelectList(db.Classes, "ID", "Name", signIn.ClassID);

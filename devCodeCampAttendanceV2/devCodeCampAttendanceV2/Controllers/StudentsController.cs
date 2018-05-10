@@ -29,7 +29,7 @@ namespace devCodeCampAttendanceV2.Controllers
             var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
             var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
             DateTime today = DateTime.Now.Date;
-            var signedIn = db.SignIns.Where(s => s.Date > today && s.StudentID ==student.ID); //pull signin entries where the student matches and the date is today
+            var signedIn = db.SignIns.Where(s => s.Date >= today && s.StudentID ==student.ID); //pull signin entries where the student matches and the date is today
             if(student == null)
             {
                 return View("Index", "Home");
