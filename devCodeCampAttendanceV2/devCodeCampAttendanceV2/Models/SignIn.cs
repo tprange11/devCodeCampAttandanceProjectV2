@@ -18,6 +18,7 @@ namespace devCodeCampAttendanceV2.Models
         public int ClassID { get; set; }
         [ForeignKey("ClassID")]
         public virtual Class Class { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public bool Late { get; set; }
     }

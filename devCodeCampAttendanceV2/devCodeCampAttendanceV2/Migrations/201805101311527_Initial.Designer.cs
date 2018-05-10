@@ -13,7 +13,7 @@ namespace devCodeCampAttendanceV2.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805081932008_Initial"; }
+            get { return "201805101311527_Initial"; }
         }
         
         string IMigrationMetadata.Source
