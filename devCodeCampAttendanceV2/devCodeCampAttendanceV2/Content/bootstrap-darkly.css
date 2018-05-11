@@ -1104,6 +1104,8 @@ a {
   color: #f39c12;
   text-decoration: none;
 }
+
+
 a:hover,
 a:focus {
   color: #f39c12;
@@ -1388,7 +1390,7 @@ a.bg-primary:focus {
 }
 a.bg-success:hover,
 a.bg-success:focus {
-  background-color: #008966;
+  background-color: #999;
 }
 .bg-info {
   background-color: #3498db;
@@ -3118,9 +3120,9 @@ fieldset[disabled] .btn-default.focus {
   background-color: #ffffff;
 }
 .btn-primary {
-  color: #ffffff;
-  background-color: #375a7f;
-  border-color: #375a7f;
+  color: #000;
+  background-color: #ABB2B9  ;
+  border-color: #ABB2B9  ;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -3182,19 +3184,19 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success:focus,
 .btn-success.focus {
   color: #ffffff;
-  background-color: #008966;
+  background-color: #999;
   border-color: #003d2d;
 }
 .btn-success:hover {
   color: #ffffff;
-  background-color: #008966;
+  background-color: #999;
   border-color: #007f5e;
 }
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #008966;
+  background-color: #999;
   border-color: #007f5e;
 }
 .btn-success:active:hover,
@@ -4628,11 +4630,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #008966;
+  border-color: #999;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #008966;
+  background-color: #ed960e;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;
@@ -4890,7 +4892,7 @@ a.label:focus {
 }
 .label-success[href]:hover,
 .label-success[href]:focus {
-  background-color: #008966;
+  background-color: #999;
 }
 .label-info {
   background-color: #3498db;
@@ -4938,6 +4940,18 @@ a.label:focus {
 .btn-group-xs > .btn .badge {
   top: 0;
   padding: 1px 5px;
+}
+
+a.btn-xs{
+    color: #fff;
+    background-color: #666666;
+    border-color: #666666;
+}
+
+input.btn-xs{
+    color: #fff;
+    background-color: #666666;
+    border-color: #666666;
 }
 a.badge:hover,
 a.badge:focus {

@@ -93,7 +93,7 @@ namespace devCodeCampAttendanceV2.Controllers
                 student.UserID = User.Identity.GetUserId();
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Current");
             }
 
             return View(student);

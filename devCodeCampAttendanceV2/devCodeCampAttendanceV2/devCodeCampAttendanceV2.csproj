@@ -339,6 +339,7 @@
     <Content Include="Views\Instructors\InstructorHome.cshtml" />
     <Content Include="Views\Classes\Past.cshtml" />
     <Content Include="Views\SignIns\Today.cshtml" />
+    <Content Include="Views\ClassStudents\NoJunction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -29,9 +29,6 @@ else
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-            <th>
-                Options
-            </th>
             <th></th>
         </tr>
 
@@ -47,11 +44,17 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
-                <td>                    
-                    @Html.ActionLink("Add to Class", "Create", "ClassStudents", null, new { StudentID = "item.ID"}) |
-                    @Html.ActionLink("Edit", "Edit", "Student") |
-                    @Html.ActionLink("Details", "Details", "Student") |
-                    @Html.ActionLink("Delete", "Delete", "Student")
+                <td>  
+                    <div>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Add to Class", "Create", "ClassStudents", new { StudentID = item.ID }, null)</li>
+                                <li>@Html.ActionLink("Edit Student Info", "Edit", "Student")</li>
+                                <li>@Html.ActionLink("Remove Student", "Delete", "ClassStudents", new { StudentID = item.ID }, null)</li>
+                            </ul>
+                        </div>
+                    </div>                  
                 </td>
             </tr>
         }

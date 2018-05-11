@@ -37,10 +37,13 @@ namespace devCodeCampAttendanceV2.Controllers
         }
 
         // GET: ClassStudents/Create
-        public ActionResult Create()
+        public ActionResult Create(int studentID)
         {
+
             ViewBag.ClassID = new SelectList(db.Classes.Where(c => c.EndDate > DateTime.Now), "ID", "Name");
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName");
+            var student =db.Students.Where(s => s.ID == studentID).FirstOrDefault();
+            var studentName = student.FirstName + " " + student.LastName;
+            ViewBag.Student = studentName;
             return View();
         }
 
@@ -99,18 +102,18 @@ namespace devCodeCampAttendanceV2.Controllers
         }
 
         // GET: ClassStudents/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? studentID)
         {
-            if (id == null)
+            if (studentID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClassStudent classStudent = db.ClassStudents.Find(id);
-            if (classStudent == null)
+            ClassStudent student = db.ClassStudents.Where(cs => cs.StudentID == studentID).FirstOrDefault();
+            if (student == null)
             {
-                return HttpNotFound();
+                return View("NoJunction");
             }
-            return View(classStudent);
+            return View(student);            
         }
 
         // POST: ClassStudents/Delete/5
