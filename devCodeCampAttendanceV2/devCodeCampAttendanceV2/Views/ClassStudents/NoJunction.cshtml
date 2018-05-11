@@ -3,6 +3,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>This student is not currently assigned to a class</h1><br />    
-</div>
+@if (User.IsInRole("Instructor"))
+{
+    <div class="jumbotron">
+        <h1>This student is not currently assigned to a class.</h1><br />
+        <a href="/ClassStudents/Create" class="btn btn-xs">Add Student to Class</a>
+    </div>
+}
+else if (User.IsInRole("Student"))
+{
+    <div class="jumbotron">
+        <h1>You are not currently assigned to a class. Please see an instructor to add you to your class.</h1><br />
+    </div>
+}
+else
+{
+    <div class="jumbotron">
+        <h1>This Student is not assigned to a Class</h1><br />
+    </div>
+}
+
+
+
+
+
+
+

@@ -62,7 +62,13 @@ namespace devCodeCampAttendanceV2.Controllers
             string userID = User.Identity.GetUserId();  //get current userID
             var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
             var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
-            ViewBag.ClassID = new SelectList(db.ClassStudents.Where(c => c.StudentID == student.ID), "ID", "Name");
+            var signInClass = db.ClassStudents.Where(c => c.StudentID == student.ID).FirstOrDefault();
+            ViewBag.ClassID = signInClass.Class.Name;
+            if (ViewBag.ClassID == null)
+            {
+                return RedirectToAction("NoJunction", "ClassStudents");
+            }
+
             DateTime date = DateTime.Now;
             SignIn signIn = new SignIn()
             {

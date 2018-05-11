@@ -58,7 +58,7 @@ namespace devCodeCampAttendanceV2.Controllers
             {
                 db.ClassStudents.Add(classStudent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Current", "Students");
             }
 
             ViewBag.ClassID = new SelectList(db.Classes, "ID", "Name", classStudent.ClassID);
