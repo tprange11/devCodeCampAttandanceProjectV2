@@ -214,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LateMessageManager.cs" />
     <Compile Include="Migrations\201805101858435_MadeClassStudentsClassIDNullable.cs" />
     <Compile Include="Migrations\201805101858435_MadeClassStudentsClassIDNullable.Designer.cs">
       <DependentUpon>201805101858435_MadeClassStudentsClassIDNullable.cs</DependentUpon>

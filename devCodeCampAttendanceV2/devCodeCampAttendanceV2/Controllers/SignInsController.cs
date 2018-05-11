@@ -81,8 +81,8 @@ namespace devCodeCampAttendanceV2.Controllers
                 DateTime signInTime = Convert.ToDateTime(signIn.Date.TimeOfDay);
                 DateTime lateTime = Convert.ToDateTime("07:15:00");
 
-                //if (lateTime <= DateTime.Now)
-                if (DateTime.Now == Convert.ToDateTime("15:32:00"))
+                if (lateTime <= DateTime.Now)
+                //if (DateTime.Now == Convert.ToDateTime("22:29:00"))
                 {
                     SlackClientTest slackClient = new SlackClientTest();
                     slackClient.TestPostMessage();

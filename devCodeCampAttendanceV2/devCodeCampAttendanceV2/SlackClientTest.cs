@@ -17,5 +17,8 @@ namespace devCodeCampAttendanceV2
                        text: "If you havent signed in yet, you can do so here: ",
                        channel: "@"+username);
         }
+
+        
+
     }
 }
