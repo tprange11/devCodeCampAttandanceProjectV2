@@ -78,14 +78,7 @@ namespace devCodeCampAttendanceV2.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            if(User.IsInRole("Instructor"))
-            {
-                returnUrl = "/Home/Index";
-            }
-            else
-            {
-                returnUrl = "/Students/StudentHome";
-            }
+            returnUrl = "/Home/Index";            
 
             switch (result)
             {

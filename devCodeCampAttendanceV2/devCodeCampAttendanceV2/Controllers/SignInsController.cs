@@ -19,7 +19,7 @@ namespace devCodeCampAttendanceV2.Controllers
 
         public ActionResult Today()
         {
-            var todaysSignIns = db.SignIns.Where(s => s.Date == DateTime.Today).ToList();
+            var todaysSignIns = db.SignIns.Where(s => s.Date.DayOfYear == DateTime.Today.Year && s.Date.Month == DateTime.Today.Month && s.Date.Day == DateTime.Today.Day).ToList();
             return View(todaysSignIns);
         }
         public ActionResult Index()
