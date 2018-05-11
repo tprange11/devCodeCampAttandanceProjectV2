@@ -16,6 +16,12 @@ namespace devCodeCampAttendanceV2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: SignIns
+
+        public ActionResult Today()
+        {
+            var todaysSignIns = db.SignIns.Where(s => s.Date == DateTime.Today).ToList();
+            return View(todaysSignIns);
+        }
         public ActionResult Index()
         {
 
@@ -56,12 +62,18 @@ namespace devCodeCampAttendanceV2.Controllers
             string userID = User.Identity.GetUserId();  //get current userID
             var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
             var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
-            ViewBag.ClassID = new SelectList(db.ClassStudents.Where(c => c.StudentID == student.ID), "ID", "Name");
-            DateTime date = DateTime.Now;
+            var studentName = student.FirstName + " " + student.LastName;
+            ViewBag.Student = studentName;
+            var signInClass = db.ClassStudents.Where(c => c.StudentID == student.ID).FirstOrDefault();
+            ViewBag.ClassID = signInClass.Class.Name;     
+            if (signInClass == null)
+            {
+                return RedirectToAction("NoJunction", "ClassStudents");
+            }
+
             SignIn signIn = new SignIn()
             {
-                Student = student,
-                Date = date
+                Student = student
             };
             return View(signIn);
         }
@@ -78,29 +90,32 @@ namespace devCodeCampAttendanceV2.Controllers
                 string userID = User.Identity.GetUserId();  //get current userID
                 var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();    //get user 
                 var student = db.Students.Where(s => s.UserID == user.Id).FirstOrDefault(); //get the corresponding student
-                DateTime signInTime = Convert.ToDateTime(signIn.Date.TimeOfDay);
+                //DateTime signInTime = Convert.ToDateTime(signIn.Date.TimeOfDay);
+                signIn.Date = DateTime.Now;
+                signIn.StudentID = student.ID;
+                signIn.ClassID = db.ClassStudents.Where(c => c.StudentID == student.ID).Select(c => c.ClassID).FirstOrDefault();
                 DateTime lateTime = Convert.ToDateTime("07:15:00");
 
-                if (lateTime <= DateTime.Now)
-                //if (DateTime.Now == Convert.ToDateTime("22:29:00"))
+                //if (lateTime <= DateTime.Now)
+                if (DateTime.Now == Convert.ToDateTime("15:32:00"))
                 {
                     SlackClientTest slackClient = new SlackClientTest();
                     slackClient.TestPostMessage();
                 }
 
-                if (signInTime > lateTime)
+                if (signIn.Date.TimeOfDay > lateTime.TimeOfDay)
                 {
                     signIn.Late = true;
                     db.SignIns.Add(signIn);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     signIn.Late = false;
                     db.SignIns.Add(signIn);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 
             }

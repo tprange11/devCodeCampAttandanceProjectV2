@@ -3,7 +3,7 @@ var y = document.getElementById("myBtn");
     
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, timeout: 5000, enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, enableHighAccuracy: true });
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -11,7 +11,7 @@ function getLocation() {
 
 function isInRange() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(inRange, showError, { maximumAge: 600000, timeout: 5000, enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(inRange, showError, { maximumAge: 600000, enableHighAccuracy: true });
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -24,7 +24,7 @@ function showPosition(position) {
 
 function inRange(position) {
 
-    if (Math.abs(position.coords.latitude - 43.044110) <= .01 && Math.abs(position.coords.longitude - -87.912006) <= .01) {
+    if (Math.abs(position.coords.latitude - 43.044110) <= .015 && Math.abs(position.coords.longitude - -87.912006) <= .015) {
         //x.innerHTML = "Click Button to sign in.";
         y.style.visibility = "visable";
     } else {
