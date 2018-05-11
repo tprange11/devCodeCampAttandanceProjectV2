@@ -8,6 +8,8 @@ namespace devCodeCampAttendanceV2.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        public string UserRoles { get; set; }
 
     }
 
