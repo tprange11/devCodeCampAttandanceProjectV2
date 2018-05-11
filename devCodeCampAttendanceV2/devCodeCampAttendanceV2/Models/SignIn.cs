@@ -11,15 +11,18 @@ namespace devCodeCampAttendanceV2.Models
     {
         [Key]
         public int ID { get; set; }
+        [Required]
         public int StudentID { get; set; }
         [ForeignKey("StudentID")]
         public virtual Student Student { get; set; }
-
+        [Required]
         public int ClassID { get; set; }
         [ForeignKey("ClassID")]
         public virtual Class Class { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
         public bool Late { get; set; }
+        public bool isHalfDay { get; set; }
+        public string Reason { get; set; }
     }
 }
