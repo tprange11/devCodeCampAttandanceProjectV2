@@ -215,6 +215,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LateMessageManager.cs" />
+    <Compile Include="Migrations\201805112050305_Added half day field and reason.cs" />
+    <Compile Include="Migrations\201805112050305_Added half day field and reason.Designer.cs">
+      <DependentUpon>201805112050305_Added half day field and reason.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,8 +350,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805111233387_Initial.resx">
-      <DependentUpon>201805111233387_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805112050305_Added half day field and reason.resx">
+      <DependentUpon>201805112050305_Added half day field and reason.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

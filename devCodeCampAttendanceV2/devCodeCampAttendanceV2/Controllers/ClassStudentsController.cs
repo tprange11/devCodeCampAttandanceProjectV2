@@ -135,5 +135,9 @@ namespace devCodeCampAttendanceV2.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult NoJunction()
+        {
+            return View();
+        }
     }
 }

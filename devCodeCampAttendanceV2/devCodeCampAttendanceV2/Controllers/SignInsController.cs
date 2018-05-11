@@ -19,7 +19,7 @@ namespace devCodeCampAttendanceV2.Controllers
 
         public ActionResult Today()
         {
-            var todaysSignIns = db.SignIns.Where(s => s.Date.DayOfYear == DateTime.Today.Year && s.Date.Month == DateTime.Today.Month && s.Date.Day == DateTime.Today.Day).ToList();
+            var todaysSignIns = db.SignIns.Where(s => s.Date.Year == DateTime.Today.Year && s.Date.Month == DateTime.Today.Month && s.Date.Day == DateTime.Today.Day).ToList();
             return View(todaysSignIns);
         }
         public ActionResult Index()
@@ -65,12 +65,12 @@ namespace devCodeCampAttendanceV2.Controllers
             var studentName = student.FirstName + " " + student.LastName;
             ViewBag.Student = studentName;
             var signInClass = db.ClassStudents.Where(c => c.StudentID == student.ID).FirstOrDefault();
-            ViewBag.ClassID = signInClass.Class.Name;     
+               
             if (signInClass == null)
             {
                 return RedirectToAction("NoJunction", "ClassStudents");
             }
-
+            ViewBag.ClassID = signInClass.Class.Name;
             SignIn signIn = new SignIn()
             {
                 Student = student
