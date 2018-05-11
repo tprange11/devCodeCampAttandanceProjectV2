@@ -9,7 +9,6 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ClassStudent</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,11 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
+            @Html.Label("Student") 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Student.FirstName)
+            @Html.DisplayFor(model => model.Student.FirstName) @Html.Raw(Model.Student.LastName)
         </dd>
 
     </dl>
@@ -33,9 +32,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div>            
+            <input type="submit" value="Delete" class="btn btn-xs" />
+            <a class="btn btn-xs" href="/Students/Current">Cancel</a> 
         </div>
     }
 </div>

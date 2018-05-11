@@ -3,7 +3,7 @@ var y = document.getElementById("myBtn");
     
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, timeout: 5000, enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, enableHighAccuracy: true });
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -11,7 +11,7 @@ function getLocation() {
 
 function isInRange() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(inRange, showError, { maximumAge: 600000, timeout: 5000, enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(inRange, showError, { maximumAge: 600000, enableHighAccuracy: true });
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
