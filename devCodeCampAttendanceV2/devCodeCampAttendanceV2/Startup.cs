@@ -20,6 +20,7 @@ namespace devCodeCampAttendanceV2
             app.UseHangfireDashboard();
             //SlackClientTest slackClient = new SlackClientTest();
             //slackClient.TestPostMessage();
+
         }
 
         private void CreateRolesandUsers()
