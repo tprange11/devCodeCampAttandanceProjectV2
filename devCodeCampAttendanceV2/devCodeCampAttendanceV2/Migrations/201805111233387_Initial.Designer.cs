@@ -7,13 +7,13 @@ namespace devCodeCampAttendanceV2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedInstructors : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedInstructors));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805102104143_added Instructors"; }
+            get { return "201805111233387_Initial"; }
         }
         
         string IMigrationMetadata.Source
