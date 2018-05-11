@@ -24,7 +24,7 @@ function showPosition(position) {
 
 function inRange(position) {
 
-    if (Math.abs(position.coords.latitude - 43.044110) <= .01 && Math.abs(position.coords.longitude - -87.912006) <= .01) {
+    if (Math.abs(position.coords.latitude - 43.044110) <= .015 && Math.abs(position.coords.longitude - -87.912006) <= .015) {
         //x.innerHTML = "Click Button to sign in.";
         y.style.visibility = "visable";
     } else {
