@@ -22,7 +22,7 @@ namespace devCodeCampAttendanceV2.Models
         [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
         public bool Late { get; set; }
-        public bool isHalfDay { get; set; }
+        public bool HalfDay { get; set; }
         public string Reason { get; set; }
     }
 }
