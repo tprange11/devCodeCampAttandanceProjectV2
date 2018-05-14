@@ -20,7 +20,10 @@ namespace devCodeCampAttendanceV2
             app.UseHangfireDashboard();
             //SlackClientTest slackClient = new SlackClientTest();
             //slackClient.TestPostMessage();
-            //LateMessageManager.SendLateMessage();
+
+            RecurringJob.AddOrUpdate(() => LateMessageManager.SendLateMessage(), "15 7 * * MON,TUE,WED,THU,FRI");
+            
+
 
         }
 
