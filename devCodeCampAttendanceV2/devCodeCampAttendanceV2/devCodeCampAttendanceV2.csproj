@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201805112050305_Added half day field and reason.Designer.cs">
       <DependentUpon>201805112050305_Added half day field and reason.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805141430218_Update feild.cs" />
+    <Compile Include="Migrations\201805141430218_Update feild.Designer.cs">
+      <DependentUpon>201805141430218_Update feild.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,6 +356,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805112050305_Added half day field and reason.resx">
       <DependentUpon>201805112050305_Added half day field and reason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805141430218_Update feild.resx">
+      <DependentUpon>201805141430218_Update feild.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
