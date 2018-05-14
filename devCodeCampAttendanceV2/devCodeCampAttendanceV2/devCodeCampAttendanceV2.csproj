@@ -215,6 +215,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LateMessageManager.cs" />
+    <Compile Include="Migrations\201805111923515_Initial.cs" />
+    <Compile Include="Migrations\201805111923515_Initial.Designer.cs">
+      <DependentUpon>201805111923515_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccessPointAddress.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -344,6 +348,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805111923515_Initial.resx">
+      <DependentUpon>201805111923515_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
