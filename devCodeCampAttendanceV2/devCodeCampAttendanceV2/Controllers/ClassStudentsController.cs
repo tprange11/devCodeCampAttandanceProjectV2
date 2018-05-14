@@ -119,12 +119,17 @@ namespace devCodeCampAttendanceV2.Controllers
         // POST: ClassStudents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed([Bind(Include = "ClassID,StudentID")] ClassStudent student)
+       
         {
-            ClassStudent classStudent = db.ClassStudents.Find(id);
-            db.ClassStudents.Remove(classStudent);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            student.ClassID = Convert.ToInt32(Request["ClassID"]);
+            if (ModelState.IsValid)
+            {
+                db.ClassStudents.Remove(student);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Current", "Students");   
         }
 
         protected override void Dispose(bool disposing)
