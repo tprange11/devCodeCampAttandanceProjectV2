@@ -350,13 +350,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\201805111923515_Initial.resx">
-      <DependentUpon>201805111923515_Initial.cs</DependentUpon>
-=======
     <EmbeddedResource Include="Migrations\201805112050305_Added half day field and reason.resx">
       <DependentUpon>201805112050305_Added half day field and reason.cs</DependentUpon>
->>>>>>> 4d8d0fce1f1b776f146f4016f7604a84873cbb41
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -108,13 +108,13 @@ namespace devCodeCampAttendanceV2.Controllers
         }
 
         // GET: Students/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? studentID)
         {
-            if (id == null)
+            if (studentID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Students.Where(s => s.ID == studentID).FirstOrDefault();
             if (student == null)
             {
                 return HttpNotFound();

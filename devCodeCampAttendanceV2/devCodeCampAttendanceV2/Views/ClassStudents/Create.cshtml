@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StudentID, "Student", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">  
-                @ViewBag.Student
+                <div style="padding-top: 12px;">@ViewBag.Student</div>
                 @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
             </div>
         </div>
