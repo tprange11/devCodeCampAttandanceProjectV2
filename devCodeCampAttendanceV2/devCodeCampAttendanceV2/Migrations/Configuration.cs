@@ -35,7 +35,7 @@ namespace devCodeCampAttendanceV2.Migrations
 
             context.Instructors.AddOrUpdate(i => i.ID,
                 new Models.Instructor { ID = 1, FirstName = "Micheal", LastName = "Heinisch" },
-                new Models.Instructor { ID = 2, FirstName = "Andrew", LastName = "Andrew" },
+                new Models.Instructor { ID = 2, FirstName = "Andrew", LastName = "Llewellyn" },
                 new Models.Instructor { ID = 3, FirstName = "Wade", LastName = "Carlson" }
                 );
         }

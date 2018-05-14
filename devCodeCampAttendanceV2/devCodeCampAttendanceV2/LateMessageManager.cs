@@ -31,7 +31,7 @@ namespace devCodeCampAttendanceV2
                         SlackClient client = new SlackClient(urlWithAccessToken);
 
                         client.PostMessage(username: "attendotron",
-                                   text: "If you havent signed in yet, you can do so here: ",
+                                   text: "If you havent signed in yet, you can do so here: https://localhost:44383/SignIns/Create",
                                    channel: "@" + slackID);
                     }
                     

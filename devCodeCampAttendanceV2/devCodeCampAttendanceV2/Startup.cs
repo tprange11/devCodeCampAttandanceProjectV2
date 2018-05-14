@@ -22,7 +22,7 @@ namespace devCodeCampAttendanceV2
             //slackClient.TestPostMessage();
 
             RecurringJob.AddOrUpdate(() => LateMessageManager.SendLateMessage(), "15 7 * * MON,TUE,WED,THU,FRI");
-            LateMessageManager.SendLateMessage();
+            //LateMessageManager.SendLateMessage();
 
 
         }
