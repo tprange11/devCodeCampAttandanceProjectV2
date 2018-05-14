@@ -346,7 +346,8 @@ namespace devCodeCampAttendanceV2.Controllers
             {
                 return RedirectToAction("Login");
             }
-
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                            .ToList(), "Name", "Name");
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
@@ -395,6 +396,15 @@ namespace devCodeCampAttendanceV2.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                        if (model.UserRoles.ToLower() == "student")
+                        {
+                            return RedirectToAction("Create", "Students");
+                        }
+                        else if (model.UserRoles.ToLower() == "instructor")
+                        {
+                            return RedirectToAction("Create", "Instructors");
+                        }
                         return RedirectToLocal(returnUrl);
                     }
                 }
